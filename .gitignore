@@ -1,7 +1,8 @@
 out
 dist
 node_modules
+.devpod-internal/
+.pnpm-store/
 .vscode-test/
 *.vsix
 
-x
