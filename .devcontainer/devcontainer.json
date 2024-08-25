@@ -1,14 +1,18 @@
 {
   "name": "vscodium-devpodcontainers",
+  // "image":""
   "build": {
     "context": "..",
     "dockerfile": "Dockerfile"
   },
-  "remoteUser": "root",
+  "remoteUser": "codium",
+  "containerUser": "codium",
   "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
     "ghcr.io/devcontainers/features/node:1": {
       "version": "20"
     }
   }
+  // "onCreateCommand": ""
   // "postCreateCommand": "pnpm i"
 }
