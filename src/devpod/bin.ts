@@ -23,7 +23,7 @@ export async function installDevpod() {
 			const msg = `
 			The DevPod Containers extension uses DevPod for bootstraping devcontainers.
 			DevPod implements the devcontainers specification, automatically configures SSH access, and lots more. Without it this extension wouldn't be possible.
-			It is free software created by Loft Labs, which source code can be found here: https://github.com/loft-sh/devpod
+			It is free software created by Loft Labs and its source code can be found here: https://github.com/loft-sh/devpod
 			`;
 			vscode.window.showInformationMessage(msg);
 			break;
