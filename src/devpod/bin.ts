@@ -3,26 +3,34 @@ import path from 'path';
 import fs from 'fs';
 
 export async function installDevpod() {
-	const install = { title: 'Install' };
-	const explain = { title: "Explain me what it is" };
+	const install = { title: 'Yes' };
+	const decline = { title: 'No' };
+	const explain = { title: "What is DevPod?" };
 	const answer = await vscode.window.showInformationMessage(
-		'"devpod" executable is not found. Would you like to install it?',
+		'DevPod couldn\'t be found on your machine, would you like to install it now?',
 		install,
+		decline,
 		explain,
 	);
 
 	switch (answer) {
 		case install: {
-			vscode.window.showErrorMessage('Sorry, but that buttun is not yet implemented.\nPlease, install devpod manually. The instuction can be found here: https://devpod.sh/docs/getting-started/install');
+			vscode.window.showErrorMessage('Sorry, but this function is not yet implemented.\nPlease install devpod manually. Instuctions can be found here: https://devpod.sh/docs/getting-started/install');
 			break;
 		}
 
 		case explain: {
 			const msg = `
-			DevPod Containers extension uses DevPod CLI for bootstraping dev containers.
-			DevPod implements devcontainers specification, setups SSH and a does lots more.Without them this extension wouldn't exists.
-			It is free software created by Loft Labs which source code can be found here: https://github.com/loft-sh/devpod
+			The DevPod Containers extension uses DevPod for bootstraping devcontainers.
+			DevPod implements the devcontainers specification, automatically configures SSH access, and lots more. Without it this extension wouldn't be possible.
+			It is free software created by Loft Labs, which source code can be found here: https://github.com/loft-sh/devpod
 			`;
+			vscode.window.showInformationMessage(msg);
+			break;
+		}
+
+		case (decline): {
+			const msg = "Gotcha, but please note that this extension can't function without the DevPod tool.";
 			vscode.window.showInformationMessage(msg);
 			break;
 		}
